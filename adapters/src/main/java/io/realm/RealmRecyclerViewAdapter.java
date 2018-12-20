@@ -74,8 +74,12 @@ public abstract class RealmRecyclerViewAdapter<T extends RealmModel, S extends R
                 for (OrderedCollectionChangeSet.Range range : modifications) {
                     notifyItemRangeChanged(range.startIndex + dataOffset(), range.length);
                 }
+                onDataChanged(adapterData);
             }
         };
+    }
+     public void onDataChanged(OrderedRealmCollection<T> adapterData){
+
     }
 
     /**
