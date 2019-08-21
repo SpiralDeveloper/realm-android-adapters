@@ -51,7 +51,7 @@ public abstract class RealmRecyclerViewAdapter<T extends RealmModel, S extends R
             @Override
             public void onChange(Object collection, OrderedCollectionChangeSet changeSet) {
                 if (changeSet.getState() == OrderedCollectionChangeSet.State.INITIAL) {
-                    notifyDataSetChanged();
+                    notifyItemRangeInserted()    ;
                     return;
                 }
                 // For deletions, the adapter has to be notified in reverse order.
@@ -207,7 +207,7 @@ public abstract class RealmRecyclerViewAdapter<T extends RealmModel, S extends R
         }
 
         this.adapterData = data;
-        notifyDataSetChanged();
+        notifyItemRangeInserted()    ;
     }
 
     private void addListener(@NonNull OrderedRealmCollection<T> data) {
