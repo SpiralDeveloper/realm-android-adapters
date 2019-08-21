@@ -44,7 +44,7 @@ public abstract class RealmBaseAdapter<T extends RealmModel> extends BaseAdapter
         this.listener = new RealmChangeListener<OrderedRealmCollection<T>>() {
             @Override
             public void onChange(OrderedRealmCollection<T> results) {
-                notifyDataSetChanged();
+                notifyItemRangeInserted()    ;
             }
         };
 
@@ -145,7 +145,7 @@ public abstract class RealmBaseAdapter<T extends RealmModel> extends BaseAdapter
         }
 
         this.adapterData = data;
-        notifyDataSetChanged();
+        notifyItemRangeInserted()    ;
     }
 
     private boolean isDataValid() {
